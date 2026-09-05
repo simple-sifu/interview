@@ -1,0 +1,12 @@
+class Solution:
+
+    def maxConsecuritiveOnes(self, nums: list[int] ) -> int:
+        res = cnt = 0
+        for num in nums:
+            cnt = cnt + 1 if num else 0
+            res = max(cnt, res)
+
+        return res
+        
+
+        
