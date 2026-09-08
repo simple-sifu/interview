@@ -36,7 +36,7 @@ def isAnagram(s: str, t: str) -> bool:
         elif tchar not in countDict or countDict[tchar] == 0:
             return False
     count = 0
-    for key, value in countDict.items():
+    for value in countDict.values():
         count += value 
     return True if count == 0 else False
 
