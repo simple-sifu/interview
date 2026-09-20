@@ -35,5 +35,5 @@ def groupAnagrams(s:( list[str])) -> bool:
 
             
 strs = ["act","pots","tops","cat","stop","hat"]
-print('Group Anagrams for %s', groupAnagrams(strs))
+print('Group Anagrams for ', groupAnagrams(strs))
 # Output: [["hat"],["act", "cat"],["stop", "pots", "tops"]]
