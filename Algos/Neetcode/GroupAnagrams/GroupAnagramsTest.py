@@ -25,18 +25,19 @@ from collections import defaultdict
 # n is number of characters in each word
 # 26 is size of count array.
 
-def groupAnagrams(s:( list[str])) -> bool:
+def groupAnagrams(words:( list[str])) -> bool:
     res = defaultdict(list)
-    
-    for s in strs:
-        count = [0] * 26 # a ... z
 
-        for code in s:
-            count[ord(code) - ord("a")] += 1
-
-        res[tuple(count)].append(s)
+    for word in words:
+        for c in word:
+            count = [0] * 26
+            count[ord(c) - ord("a")] += 1
+        res[tuple(count)].append(word)
 
     return res.values()
+
+
+
 
 
             
