@@ -29,16 +29,11 @@ def groupAnagrams(words:( list[str])) -> bool:
     res = defaultdict(list)
 
     for word in words:
+        count = [0] * 26
         for c in word:
-            count = [0] * 26
             count[ord(c) - ord("a")] += 1
         res[tuple(count)].append(word)
-
     return res.values()
-
-
-
-
 
             
 strs = ["act","pots","tops","cat","stop","hat"]
