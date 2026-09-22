@@ -19,21 +19,17 @@
 # 1 <= s.length, t.length <= 5 * 10^4
 # s and t consist of lowercase English letters.
 
-def isAnagram(s: str, t: str) -> bool:
+def isAnagram(word: str, secondWord: str) -> bool:
     countDict = {}
-    for schar in s:
-        if schar in countDict:
-            countDict[schar] += 1
+    for c in word:
+        if c in countDict:
+            countDict[c] += 1
         else:
-            countDict[schar] = 1
-    for tchar in t:
-        if tchar in countDict:
-            print("tchar =", tchar," and countDict[tchar] =", countDict[tchar])
+            countDict[c] = 1
+    for c in secondWord:
+        if (c in countDict) and (countDict[c] != 0):
+            countDict[c] -= 1
         else:
-            print("tchar =", tchar)
-        if (tchar in countDict) and (countDict[tchar] != 0):
-            countDict[tchar] -= 1
-        elif tchar not in countDict or countDict[tchar] == 0:
             return False
     count = 0
     for value in countDict.values():
@@ -43,13 +39,13 @@ def isAnagram(s: str, t: str) -> bool:
             
 s="racecar"
 t="carrace"
-print('isAnagram = %b for %s and %s', isAnagram(s,t), s, t)
+print(f'is this an Anagram ? {isAnagram(s,t)} for {s} and {t}')
 
 s = "jar"
 t = "jam"
-print('isAnagram = %b for %s and %s', isAnagram(s,t), s, t) 
+print(f'is this an Anagram ? {isAnagram(s,t)} for {s} and {t}')
 
 
 s = "x"
 t = "x"
-print('isAnagram = %b for %s and %s', isAnagram(s,t), s, t)  
+print(f'is this an Anagram ? {isAnagram(s,t)} for {s} and {t}')
