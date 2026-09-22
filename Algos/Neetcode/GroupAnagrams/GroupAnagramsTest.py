@@ -26,15 +26,15 @@ from collections import defaultdict
 # 26 is size of count array.
 
 def groupAnagrams(words:list[str]) -> list[[]]:
-    groupOfAnagrams = defaultdict(list)
+    anagrams = defaultdict(list)
 
     for word in words:
         count = [0] * 26
         for char in word:
             count[ord(char) - ord("a")] += 1
-        groupOfAnagrams[tuple(count)].append(word)
+        anagrams[tuple(count)].append(word)
 
-    return groupOfAnagrams.values()
+    return anagrams.values()
 
             
 strs = ["act","pots","tops","cat","stop","hat"]
