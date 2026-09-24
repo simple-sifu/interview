@@ -10,16 +10,11 @@ def topKFrequent(nums: list[int], k: int) -> list[int]:
 
     for num in nums:
         counts[num] = 1 + counts.get(num, 0) 
-    print("counts =", counts)
 
     freq = [[] for _ in range(len(nums) + 1)]
-    print("freq before loop:", freq)
     for num, count in counts.items():
-        print("inside loop num=", num, ", count=", count)
         freq[count].append(num)
-        print("freq after loop:", freq)
 
-    print("freq after loop:", freq)
     result = []
     for index in range(len(freq)-1, 0, -1):
         if len(result) >= k:
