@@ -5,22 +5,23 @@
 
 def topKFrequent(nums: list[int], k: int) -> list[int]:
 
+    freq = [[] for _ in range(len(nums) + 1)]
     print( '*' * 20)
     counts = {}
 
     for num in nums:
         counts[num] = 1 + counts.get(num, 0) 
 
-    freq = [[] for _ in range(len(nums) + 1)]
+
     for num, count in counts.items():
         freq[count].append(num)
 
     result = []
     for index in range(len(freq)-1, 0, -1):
-        if len(result) >= k:
-            break
-        if freq[index]:
-            result.append(freq[index][0])
+        for n in freq[index]:
+            result.append(n)
+            if len(result) == k:
+                return result
 
     return result
         
