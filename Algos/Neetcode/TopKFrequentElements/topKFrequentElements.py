@@ -12,7 +12,6 @@ def topKFrequent(nums: list[int], k: int) -> list[int]:
     for num in nums:
         counts[num] = 1 + counts.get(num, 0) 
 
-
     for num, count in counts.items():
         freq[count].append(num)
 
