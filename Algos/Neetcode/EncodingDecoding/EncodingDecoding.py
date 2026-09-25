@@ -26,23 +26,27 @@ def encode(sentence: list[str]) -> str:
     encoded_string = ""
     for word in sentence:
         encoded_string += str(len(word)) + "#" + word
-        print(encoded_string)
     return encoded_string
 
 def decode(s: str) -> list[str]:
 
     decoded_string = []
-
-    for char in s:
-        while (char !== "#"):
-            
-        decoded_string.append(s)
+    i = 0
+    while i < len(s):
+        sizeStr = ""
+        while s[i] != '#':
+            sizeStr += s[i]
+            i += 1
+        size = int(sizeStr)
+        i += 1
+        decoded_string.append(s[i:i + size])
+        i +=  size
     return decoded_string
 
 
 # example 1
-strs = ["hello", "world"]
+strs = ["hello", "world", "where", "are", "my", "burgers", "tonight"]
 encoded_string = encode(strs)
 print("encoded_string =", encoded_string)
 decoded_strs = decode(encoded_string)
-
+print("decoded_string =", decoded_strs)
