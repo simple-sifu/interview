@@ -27,13 +27,13 @@
 
 def TwoSum( numbers: list[int], target: int) -> list[int]:
 
-    hashMap = {}
+    prevMap = {}
     for index, num in enumerate(numbers):
-        secondNum = abs(target - num)
-        if secondNum in hashMap:
-            return [hashMap.get(secondNum), index]
-        hashMap[num] = index
-
+ 
+        diff = abs(num - target)
+        if diff in prevMap:
+            return [prevMap[diff], index]
+        prevMap[num] = index
 
 nums = [3,4,5,6]
 target = 7
