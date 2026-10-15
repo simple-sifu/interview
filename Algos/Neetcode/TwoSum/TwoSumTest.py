@@ -28,12 +28,12 @@
 def TwoSum( numbers: list[int], target: int) -> list[int]:
 
     prevMap = {}
-    for index, num in enumerate(numbers):
- 
-        diff = abs(num - target)
-        if diff in prevMap:
-            return [prevMap[diff], index]
-        prevMap[num] = index
+    for i, num in enumerate(numbers):
+        targetSum = abs(num - target)
+        if (targetSum in prevMap): 
+            return [prevMap[targetSum], i]
+        prevMap[num] = i
+
 
 nums = [3,4,5,6]
 target = 7
