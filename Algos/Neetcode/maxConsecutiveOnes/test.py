@@ -1,9 +1,10 @@
 def maxConsecutiveOnes(nums: list[int]) -> int:
-    result = 0
     count = 0
+    result = 0
     for num in nums:
-        count =  count + 1 if num == 1 else 0 
+        count = count + 1 if num == 1 else 0 
         result = max(count, result)
+
     return result
 
 
