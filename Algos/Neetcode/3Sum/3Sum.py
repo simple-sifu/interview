@@ -26,14 +26,18 @@ class Solution:
                 print("loop 1: l =", l, ", r=", r)
                 threeSum = target + nums[l] + nums[r]
                 if threeSum > 0:
+                    print("gtr than 0")
                     r -= 1
                 elif threeSum < 0:
+                    print("less than 0")
                     l += 1
                 else:
+                    print("equal 0")
                     result.append([target, nums[l], nums[r]])
                     l +=1
                     while nums[l] == nums[l-1] and l<r:
                         l += 1
+            print("**** end loop *****\n")
         return result
 
 
