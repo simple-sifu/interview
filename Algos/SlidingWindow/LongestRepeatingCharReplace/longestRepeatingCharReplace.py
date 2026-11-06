@@ -10,11 +10,12 @@ class Solution:
     def findLongestRepeating(self, s:str, k:int) -> int:
         result = 0
         l = 0
+        maxf = 0
         count = defaultdict(int)
         for r in range(len(s)):
             count[s[r]] += 1
-
-            if len(s[l:r+1]) - max(count.values()) > k:
+            maxf = max(count[s[r]], maxf)
+            if len(s[l:r+1]) - maxf > k:
                 count[s[l]] -= 1
                 l += 1
 
