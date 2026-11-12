@@ -13,14 +13,15 @@ class Solution:
         result = [-1, -1]
         resultLen = float("infinity")
         for rightPtr in range(len(s)):
-            print("loop: rightPtr =", rightPtr, ", have =", have)
+            print("loop: rightPtr =", rightPtr, ", have =", have, ", need =", need)
             key = s[rightPtr]
 
             if key in substringHash:
+                print("key in substringHash windowHash=", windowHash )
                 windowHash[key] = 1 + windowHash.get(key, 0)
 
             print("key =", key, ", substringHash =", substringHash, ", windowHash=", windowHash, ", s=", s)
-            if key in substringHash and substringHash[s[rightPtr]] == windowHash[s[rightPtr]]:
+            if key in substringHash and windowHash[key] <= substringHash[key]:
                 have += 1
             
             print("before while: have =", have)
@@ -54,8 +55,8 @@ class Solution:
 sol = Solution()
 s = "ADOBECODEBANC"
 t = "ABC"
-# print("sol.minWindow() =", sol.minWindow(s,t))
+print("sol.minWindow() =", sol.minWindow(s,t))
 
 s="aa"
 t="aa"
-print("sol.minWindow() =", sol.minWindow(s,t))
+# print("sol.minWindow() =", sol.minWindow(s,t))
