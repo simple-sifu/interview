@@ -54,4 +54,8 @@ class Solution:
 sol = Solution()
 s = "ADOBECODEBANC"
 t = "ABC"
+# print("sol.minWindow() =", sol.minWindow(s,t))
+
+s="aa"
+t="aa"
 print("sol.minWindow() =", sol.minWindow(s,t))
