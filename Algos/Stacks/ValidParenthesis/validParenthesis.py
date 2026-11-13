@@ -40,6 +40,10 @@ inputStr = "()[]{}"
 print("sol.validParenthesis(()) =", sol.validParenthesis(inputStr))
 # output: True
 
+inputStr = "[[[([{}])]]]"
+print("sol.validParenthesis(()) =", sol.validParenthesis(inputStr))
+# output: True
+
 inputStr = "()[{}"
 print("sol.validParenthesis(()) =", sol.validParenthesis(inputStr))
 # output: False
