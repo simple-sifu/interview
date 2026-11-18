@@ -11,26 +11,28 @@ class Solution:
         topRow, bottomRow = 0, len(matrix) - 1
 
         while topRow <= bottomRow:
+            print("loop1: topRow=", topRow, ", bottomRow=", bottomRow)
             middleRow = (topRow + bottomRow) // 2
-            print("middleRow =", middleRow, ", matrix[middleRow][-1]=", matrix[middleRow][-1])
-            if matrix[middleRow][-1] < target:
-                print("topRow... target=", target)
+            print("loop2: middleRow =", middleRow, ", matrix[middleRow][-1]=", matrix[middleRow][-1])
+            if target > matrix[middleRow][-1]:
                 topRow = middleRow + 1
-            elif matrix[middleRow][0] > target:
-                print("bottomRow... target=", target)
+                print("loop3: topRow... target=", target)
+            elif target < matrix[middleRow][0]:
                 bottomRow = middleRow - 1
-            break
+                print("loop4: bottomRow... target=", target, ", bottomRow =", bottomRow)
+            else:
+               break
 
-        print("topRow =", topRow, ", bottomRow =", bottomRow)
+        print("outside: topRow =", topRow, ", bottomRow =", bottomRow, ", middleRow =", middleRow)
         if not (topRow <= bottomRow):
             return False
         
         middleRow = (topRow + bottomRow) // 2
-        print("middleRow =", middleRow)
+        print("outside: middleRow =", middleRow, ", topRow =", topRow, ", bottomRow =", bottomRow)
         leftColumn, rightColumn = 0, len(matrix[0])- 1
         while leftColumn <= rightColumn:
             middleColumn = (leftColumn + rightColumn)//2
-            print("middleColumn=", middleColumn, ", matrix[middleRow][middleColumn]=", matrix[middleRow][middleColumn])
+            print("loopx: middleColumn=", middleColumn, ", matrix[middleRow][middleColumn]=", matrix[middleRow][middleColumn])
             if target < matrix[middleRow][middleColumn]:
                 rightColumn = middleColumn - 1
             elif target > matrix[middleRow][middleColumn]:
@@ -45,5 +47,12 @@ class Solution:
 sol = Solution()
 matrix = [[1,2,4,8],[10,11,12,13],[14,20,30,40]]
 target = 10
+# print("sol.twoDegreeMatrix()=", sol.twoDegreeMatrix(matrix, target))
+# Output: true
+
+print("***************** \n\n\n")
+matrix=[[-8],[-3],[0],[4],[9]]
+target=-3
 print("sol.twoDegreeMatrix()=", sol.twoDegreeMatrix(matrix, target))
 # Output: true
+
